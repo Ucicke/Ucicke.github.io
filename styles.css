@@ -11,7 +11,7 @@
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Manrope, system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
 a { color: inherit; }
-a:focus-visible { outline: 3px solid #417e4c; outline-offset: 5px; }
+a:focus-visible, button:focus-visible { outline: 3px solid #417e4c; outline-offset: 5px; }
 .wrap { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
 .skip-link { position: absolute; z-index: 10; top: 8px; left: 8px; padding: 12px; background: var(--ink); color: white; transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
@@ -45,7 +45,7 @@ a:focus-visible { outline: 3px solid #417e4c; outline-offset: 5px; }
 .feature-content > p { margin: 0 0 16px; color: #55564f; font-size: 15px; line-height: 1.75; }
 .feature-content > .feature-hook { color: var(--ink); font-size: 18px; font-weight: 800; line-height: 1.4; }
 .feature-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; margin-top: 9px; }
-.play-button { display: inline-flex; justify-content: space-between; align-items: center; gap: 42px; min-height: 55px; padding: 0 18px; background: var(--ink); border: 1px solid var(--ink); color: white; font-size: 13px; font-weight: 800; text-decoration: none; transition: background .2s, color .2s; }
+.play-button { font-family: inherit; cursor: pointer; display: inline-flex; justify-content: space-between; align-items: center; gap: 42px; min-height: 55px; padding: 0 18px; background: var(--ink); border: 1px solid var(--ink); color: white; font-size: 13px; font-weight: 800; text-decoration: none; transition: background .2s, color .2s; }
 .play-button:hover { background: var(--paper); color: var(--ink); }
 .button-arrow { font-size: 19px; transition: transform .2s; }
 .play-button:hover .button-arrow { transform: translate(3px, -3px); }
@@ -67,6 +67,20 @@ a:focus-visible { outline: 3px solid #417e4c; outline-offset: 5px; }
 .social-links a { font: 500 12px var(--mono); text-underline-offset: 4px; }
 .footer { display: flex; justify-content: space-between; gap: 20px; padding: 24px 0 36px; border-top: 1px solid var(--line); color: var(--muted); font: 500 11px var(--mono); }
 .footer a { text-decoration: none; }
+/* LifeSim availability notice */
+.no-script-notice { flex-basis: 100%; margin: 0; font-size: 13px; line-height: 1.6; }
+.notice-dialog { width: min(480px, calc(100% - 32px)); max-height: calc(100% - 32px); margin: auto; padding: 0; border: 1px solid var(--ink); background: var(--paper); color: var(--ink); box-shadow: 6px 6px 0 var(--ink); }
+.notice-dialog::backdrop { background: rgba(17, 17, 17, .66); }
+.notice-dialog form { position: relative; padding: clamp(26px, 6vw, 40px); }
+.notice-close { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; padding: 0; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 24px; line-height: 1; cursor: pointer; }
+.notice-close:hover { border-color: var(--ink); }
+.notice-label { margin: 0 38px 22px 0; color: #9b5a40; font: 500 10px/1.5 var(--mono); letter-spacing: .05em; }
+.notice-dialog h2 { margin: 0 0 18px; font-size: clamp(30px, 6vw, 40px); line-height: 1.1; letter-spacing: -.055em; }
+.notice-dialog h2 span { color: var(--accent); }
+.notice-dialog #notice-description { margin: 0 0 28px; color: #55564f; font-size: 15px; line-height: 1.7; }
+.notice-confirm { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; min-height: 48px; padding: 0 16px; border: 1px solid var(--ink); background: var(--ink); color: #fff; font: 800 13px Manrope, system-ui, sans-serif; cursor: pointer; }
+.notice-confirm:hover { background: var(--paper); color: var(--ink); }
+
 @media (max-width: 760px) {
   .wrap { width: min(1160px, calc(100% - 32px)); }
   .top-inner { min-height: 68px; }

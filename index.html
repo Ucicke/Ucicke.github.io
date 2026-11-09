@@ -50,12 +50,13 @@
           <p>Появиться на свет легко. Дальше начинаются семья, работа, деньги и выборы, к которым тебя, разумеется, никто не готовил. Зато здесь можно попробовать ещё раз.</p>
           <p>Проживай жизнь через карточки событий: развивай навыки, строй карьеру и наблюдай, как прошлые решения открывают новые истории. У каждого прохождения — свои обстоятельства и свои поводы для некролога.</p>
           <div class="feature-actions">
-            <a class="play-button" href="https://ucicke.ru/lifesim/"><span>Начать жизнь</span><span class="button-arrow" aria-hidden="true">↗</span></a>
+            <button class="play-button" type="button" data-lifesim-open aria-haspopup="dialog" aria-controls="lifesim-notice"><span>Начать жизнь</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            <noscript><p class="no-script-notice">LifeSim временно недоступна. Пожалуйста, загляните позже.</p></noscript>
             <span class="platforms">WEB · TELEGRAM · VK</span>
           </div>
           <div class="collaborator">
             <span class="collaborator-label">СОЗДАЁМ ВМЕСТЕ</span>
-            <p>LifeSim — наш совместный проект с <a href="https://vk.ru/cloudsinpuddles" target="_blank" rel="noopener noreferrer">[Имя соавтора] <span aria-hidden="true">↗</span></a>. Она отвечает за нарратив, художественное оформление и маркетинг. Вместе мы развиваем игру и её истории, чтобы за иронией оставались узнаваемые человеческие ситуации.</p>
+            <p>LifeSim — наш совместный проект. <a href="https://vk.ru/cloudsinpuddles" target="_blank" rel="noopener noreferrer">Ирина <span aria-hidden="true">↗</span></a> отвечает за нарратив, художественное оформление и маркетинг. Вместе мы развиваем игру и её истории, чтобы за иронией оставались узнаваемые человеческие ситуации.</p>
           </div>
         </div>
         <figure class="feature-visual">
@@ -81,5 +82,19 @@
     </section>
   </main>
   <footer class="wrap footer"><span>© 2026 Иван Брежнев / ucicke</span><a href="#main">НАВЕРХ ↑</a></footer>
+  <dialog class="notice-dialog" id="lifesim-notice" aria-labelledby="notice-title" aria-describedby="notice-description">
+    <form method="dialog">
+      <button class="notice-close" type="submit" aria-label="Закрыть окно">×</button>
+      <p class="notice-label">LIFESIM / ВРЕМЕННО НЕДОСТУПНА</p>
+      <h2 id="notice-title">Пока невозможно<br>поиграть<span>.</span></h2>
+      <p id="notice-description">LifeSim временно недоступна. Пожалуйста, загляните позже.</p>
+      <button class="notice-confirm" type="submit" autofocus>Понятно <span aria-hidden="true">↗</span></button>
+    </form>
+  </dialog>
+  <script>
+    const lifeSimButton = document.querySelector('[data-lifesim-open]');
+    const lifeSimNotice = document.getElementById('lifesim-notice');
+    lifeSimButton.addEventListener('click', () => lifeSimNotice.showModal());
+  </script>
 </body>
 </html>
